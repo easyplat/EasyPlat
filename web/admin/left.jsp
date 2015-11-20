@@ -21,8 +21,6 @@ $(function(){
 			}else{
 				$parent.addClass("open").find('.sub-menus').show();	
 			}
-			
-			
 		}
 	});
 	
@@ -48,42 +46,30 @@ $(function(){
 </head>
 
 <body style="background:#fff3e1;">
-	<div class="lefttop"><span></span>通讯录</div>
+	<div class="lefttop"><span></span>系统管理</div>
     
     <dl class="leftmenu">
         
     <dd>
     <div class="title">
-    <span><img src="images/leftico01.png" /></span>管理信息
+    <span><img src="images/leftico01.png" /></span>内容管理
     </div>
     	<ul class="menuson">
         
         <li>
             <div class="header">
             <cite></cite>
-            <a href="index.html" target="rightFrame">首页模版</a>
+            <a href="/article/list/1/20" target="rightFrame">文章管理</a>
             <i></i>
             </div>
-            <ul class="sub-menus">
-            <li><a href="javascript:;">文件管理</a></li>
-            <li><a href="javascript:;">模型信息配置</a></li>
-            <li><a href="javascript:;">基本内容</a></li>
-            <li><a href="javascript:;">自定义</a></li>
-            </ul>
         </li>
         
         <li>
             <div class="header">
             <cite></cite>
-            <a href="right.html" target="rightFrame">数据列表</a>
+            <a href="/articleCatalog/list/1/20" target="rightFrame">类别管理</a>
             <i></i>
-            </div>                
-            <ul class="sub-menus">
-            <li><a href="javascript:;">文件数据</a></li>
-            <li><a href="javascript:;">学生数据列表</a></li>
-            <li><a href="javascript:;">我的数据列表</a></li>
-            <li><a href="javascript:;">自定义</a></li>
-            </ul>
+            </div>
         </li>
         
         <li class="active"><cite></cite><a href="right.html" target="rightFrame">数据列表</a><i></i></li>

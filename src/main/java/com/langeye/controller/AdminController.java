@@ -122,9 +122,15 @@ public class AdminController extends BaseController {
         return "dashbord";
     }
 
-    @RequestMapping(value = "/sys/setting")
+    @RequestMapping(value = "/setting")
     public String setting(HttpServletRequest request,HttpServletResponse response,Model model){
 
         return "setting";
+    }
+
+    @RequestMapping(value = "/logout")
+    public String logOut(){
+
+        return "redirect:login";
     }
 }

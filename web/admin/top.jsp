@@ -12,7 +12,13 @@ $(function(){
 	$(".nav li a").click(function(){
 		$(".nav li a.selected").removeClass("selected")
 		$(this).addClass("selected");
-	})	
+	})
+
+    $(".logOut").click(function(){
+        if(confirm("是否确认退出系统")){
+            window.location.href="/admin/logout";
+        }
+    });
 })	
 </script>
 
@@ -31,14 +37,14 @@ $(function(){
     <li><a href="imglist.html"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
     <li><a href="tools.html"  target="rightFrame"><img src="images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
     <li><a href="computer.html" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>文件管理</h2></a></li>
-    <li><a href="/admin/sys/setting"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+    <li><a href="/admin/setting"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
     </ul>
             
     <div class="topright">    
     <ul>
     <li><span><img src="images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
     <li><a href="#">关于</a></li>
-    <li><a href="login.html" target="_parent">退出</a></li>
+    <li><a href="javascript" class="logOut" target="_parent">退出</a></li>
     </ul>
      
     <div class="user">

@@ -31,6 +31,9 @@
 
     <mvc:default-servlet-handler />
 
+    <mvc:resources mapping="/css/" location="/admin/css/"/>
+    <mvc:resources mapping="/js/" location="/admin/js/"/>
+    <mvc:resources mapping="/images/" location="/admin/images/"/>
 
     <!--<mvc:annotation-driven/>-->
 
