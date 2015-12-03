@@ -3,6 +3,8 @@ package com.langeye.entity;
 import com.langeye.general.GeneralEntity;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
@@ -10,6 +12,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "UC_SysUser")
+@XmlRootElement
 public class SysUser extends GeneralEntity {
 
     private String name;

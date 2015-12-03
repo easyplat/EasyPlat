@@ -1,10 +1,8 @@
 package com.langeye.general;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,7 +15,7 @@ public class GeneralEntity implements Serializable{
     private int id;
     private Date dateCreated;
     private int dataCreated;
-    private Date dateModified;
+    private Date dateModified = new Date();
     private int dataModified;
 
     @Id
@@ -31,6 +29,8 @@ public class GeneralEntity implements Serializable{
         this.id = id;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable=false)
     public Date getDateCreated() {
         return dateCreated;
     }
@@ -39,6 +39,7 @@ public class GeneralEntity implements Serializable{
         this.dateCreated = dateCreated;
     }
 
+    @Column(updatable=false)
     public int getDataCreated() {
         return dataCreated;
     }
@@ -47,6 +48,7 @@ public class GeneralEntity implements Serializable{
         this.dataCreated = dataCreated;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     public Date getDateModified() {
         return dateModified;
     }
@@ -69,13 +71,16 @@ public class GeneralEntity implements Serializable{
         if (o == null || getClass() != o.getClass()) return false;
 
         GeneralEntity that = (GeneralEntity) o;
-
         return id == that.id;
-
     }
 
     @Override
     public int hashCode() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

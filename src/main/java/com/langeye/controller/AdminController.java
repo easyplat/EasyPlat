@@ -6,7 +6,6 @@ import com.langeye.entity.ArticleCatalog;
 import com.langeye.entity.SysUser;
 import com.langeye.entity.Task;
 import com.langeye.formbrean.User;
-import com.langeye.general.GeneralController;
 import com.langeye.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,33 +34,15 @@ public class AdminController extends BaseController {
     private TaskService taskService;
 
 
-    /**
-     * ÏÔÊ¾µÇÂ¼»­Ãæ
-     * @return
-     */
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String loginGet(){
         return "login";
     }
 
-
-    /**
-     * µÇÂ¼ÑéÖ¤
-     * @param user      µÇÂ¼±íµ¥²ÎÊı
-     * @param request   request¶ÔÏó
-     * @param response  response¶ÔÏó
-     * @param modelMap  ´«µİ²ÎÊıµ½Ö÷Ò³Ãæ(User)
-     * @return
-     */
     @RequestMapping(value="/login",method=RequestMethod.POST)
     public String loginPost(@ModelAttribute("User")User user,
                             HttpServletRequest request,
                             HttpServletResponse response,
-                            /**
-                                 * RedirectAttributesModelMap ÓÃÓÚÖØ¶¨Ïò´«µİ²ÎÊı
-                                 * ÔÚÖØ¶¨Ïò¹¦ÄÜÖĞModelMapÒÔ¼°request attribute²»»á´«µİ²ÎÊı
-                                 * ¸Ã²ÎÊı¿ÉÓÃÓÚÔÚ²»Í¬Ò³ÃæÖ®¼äÌø×ªÈçÉ¾³ıºó´«µİµ½Ö÷Ò³ÃæµÄ²ÎÊı
-                             */
                             RedirectAttributesModelMap modelMap,
                             Model model) throws UnsupportedEncodingException {
 
@@ -77,7 +58,7 @@ public class AdminController extends BaseController {
             request.setAttribute("User",entity);
             return "redirect:main";
         }
-        model.addAttribute("errorMsg","ÕËºÅ»òÃÜÂë´íÎó,ÇëºË¶ÔºóÖØĞÂÊäÈë");
+        model.addAttribute("errorMsg","è´¦å·æˆ–å¯†ç é”™è¯¯,è¯·æ ¸å¯¹åé‡æ–°è¾“å…¥...");
         return "login";
     }
 

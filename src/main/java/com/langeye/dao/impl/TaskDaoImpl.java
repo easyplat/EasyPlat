@@ -1,5 +1,6 @@
-package com.langeye.dao;
+package com.langeye.dao.impl;
 
+import com.langeye.dao.TaskDao;
 import com.langeye.entity.Article;
 import com.langeye.entity.Task;
 import com.langeye.general.GeneralDaoImpl;

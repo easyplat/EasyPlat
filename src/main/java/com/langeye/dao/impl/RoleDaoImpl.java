@@ -1,5 +1,6 @@
-package com.langeye.dao;
+package com.langeye.dao.impl;
 
+import com.langeye.dao.RoleDao;
 import com.langeye.entity.Role;
 import com.langeye.general.GeneralDaoImpl;
 import org.springframework.stereotype.Repository;

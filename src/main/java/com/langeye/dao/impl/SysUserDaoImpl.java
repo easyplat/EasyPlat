@@ -1,5 +1,6 @@
-package com.langeye.dao;
+package com.langeye.dao.impl;
 
+import com.langeye.dao.SysUserDao;
 import com.langeye.entity.SysUser;
 import com.langeye.general.GeneralDaoImpl;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * Project: EasyPlat
  */
 @Repository("sysUserDao")
-public class SysUserDaoImpl extends GeneralDaoImpl<SysUser> implements SysUserDao{
+public class SysUserDaoImpl extends GeneralDaoImpl<SysUser> implements SysUserDao {
 
     public SysUser get(SysUser user) {
         String hql=" from SysUser Where name=? and password=? ";

@@ -1,11 +1,12 @@
-package com.langeye.service;
+package com.langeye.service.impl;
 
 import com.langeye.common.Pager;
-import com.langeye.dao.ArticleCatalogDao;
 import com.langeye.dao.ArticleDao;
+import com.langeye.dao.TaskDao;
 import com.langeye.entity.Article;
-import com.langeye.entity.ArticleCatalog;
+import com.langeye.entity.Task;
 import com.langeye.general.GeneralServiceImpl;
+import com.langeye.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -17,41 +18,41 @@ import java.util.List;
 /**
  * Created by Fish on 2015/11/6.
  */
-@Service("articleCatalogService")
+@Service("taskService")
 @Transactional
-public class ArticleCatalogServiceImpl extends GeneralServiceImpl<ArticleCatalog> implements ArticleCatalogService {
+public class TaskServiceImpl extends GeneralServiceImpl<Task> implements TaskService {
 
     @Autowired(required = true)
-    @Qualifier("articleCatalogDao")
-    private ArticleCatalogDao dao;
+    @Qualifier("taskDao")
+    private TaskDao dao;
 
-    public void save(ArticleCatalog entity) {
+    public void save(Task entity) {
         dao.save(entity);
     }
 
-    public void update(ArticleCatalog entity) {
+    public void update(Task entity) {
         dao.update(entity);
     }
 
-    public void delete(ArticleCatalog entity) {
+    public void delete(Task entity) {
         dao.delete(entity);
     }
 
-    public Pager<ArticleCatalog> paging(ArticleCatalog entity, int page, int pageSize) {
-        Pager<ArticleCatalog> pager = new Pager<ArticleCatalog>();
+    public Pager<Task> paging(Task entity, int page, int pageSize) {
+        Pager<Task> pager = new Pager<Task>();
         pager.setPage(page);
         pager.setPageSize(pageSize);
-        List<ArticleCatalog> list = getAll();
+        List<Task> list = getAll();
         pager.setTotalRecord(list.size());
         pager.setRecords(list);
         return pager;
     }
 
-    public List<ArticleCatalog> getAll() {
+    public List<Task> getAll() {
         return dao.getAll();
     }
 
-    public ArticleCatalog get(Serializable id) {
+    public Task get(Serializable id) {
         return dao.get(id);
     }
 }

@@ -1,5 +1,6 @@
-package com.langeye.dao;
+package com.langeye.dao.impl;
 
+import com.langeye.dao.ArticleDao;
 import com.langeye.entity.Article;
 import com.langeye.general.GeneralDaoImpl;
 import org.springframework.stereotype.Repository;

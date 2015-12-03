@@ -1,7 +1,8 @@
-package com.langeye.service;
+package com.langeye.service.impl;
 
 import com.langeye.dao.SysUserDao;
 import com.langeye.entity.SysUser;
+import com.langeye.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;

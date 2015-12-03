@@ -44,18 +44,14 @@ $(function(){
 
 
 </head>
-
 <body style="background:#fff3e1;">
 	<div class="lefttop"><span></span>系统管理</div>
-    
     <dl class="leftmenu">
-        
     <dd>
     <div class="title">
     <span><img src="images/leftico01.png" /></span>内容管理
     </div>
     	<ul class="menuson">
-        
         <li>
             <div class="header">
             <cite></cite>
@@ -63,7 +59,6 @@ $(function(){
             <i></i>
             </div>
         </li>
-        
         <li>
             <div class="header">
             <cite></cite>
@@ -71,8 +66,13 @@ $(function(){
             <i></i>
             </div>
         </li>
-        
-        <li class="active"><cite></cite><a href="right.html" target="rightFrame">数据列表</a><i></i></li>
+            <li>
+                <div class="header">
+                    <cite></cite>
+                    <a href="/role/list/1/20" target="rightFrame">角色管理</a>
+                    <i></i>
+                </div>
+            </li>
         <li><cite></cite><a href="imgtable.html" target="rightFrame">图片数据表</a><i></i></li>
         <li><cite></cite><a href="form.html" target="rightFrame">添加编辑</a><i></i></li>
         <li><cite></cite><a href="imglist.html" target="rightFrame">图片列表</a><i></i></li>
@@ -83,8 +83,6 @@ $(function(){
         <li><cite></cite><a href="error.html" target="rightFrame">404页面</a><i></i></li>
         </ul>    
     </dd>
-        
-    
     <dd>
     <div class="title">
     <span><img src="images/leftico02.png" /></span>其他设置
@@ -96,8 +94,7 @@ $(function(){
         <li><cite></cite><a href="tech.html" target="rightFrame">技术支持</a><i></i></li>
         </ul>     
     </dd> 
-    
-    
+
     <dd><div class="title"><span><img src="images/leftico03.png" /></span>编辑器</div>
     <ul class="menuson">
         <li><cite></cite><a href="#">自定义</a><i></i></li>
@@ -106,8 +103,7 @@ $(function(){
         <li><cite></cite><a href="#">其他</a><i></i></li>
     </ul>    
     </dd>  
-    
-    
+
     <dd><div class="title"><span><img src="images/leftico04.png" /></span>日期管理</div>
     <ul class="menuson">
         <li><cite></cite><a href="#">自定义</a><i></i></li>
@@ -115,10 +111,7 @@ $(function(){
         <li><cite></cite><a href="#">信息列表</a><i></i></li>
         <li><cite></cite><a href="#">其他</a><i></i></li>
     </ul>
-    
-    </dd>   
-    
+    </dd>
     </dl>
-    
 </body>
 </html>

@@ -1,9 +1,12 @@
-package com.langeye.service;
+package com.langeye.service.impl;
 
 import com.langeye.common.Pager;
+import com.langeye.dao.ArticleDao;
 import com.langeye.dao.RoleDao;
+import com.langeye.entity.Article;
 import com.langeye.entity.Role;
 import com.langeye.general.GeneralServiceImpl;
+import com.langeye.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -15,41 +18,41 @@ import java.util.List;
 /**
  * Created by Fish on 2015/11/6.
  */
-@Service("roleService")
+@Service("articleService")
 @Transactional
-public class RoleServiceImpl extends GeneralServiceImpl<Role> implements RoleService {
+public class ArticleServiceImpl extends GeneralServiceImpl<Article> implements ArticleService {
 
     @Autowired(required = true)
-    @Qualifier("roleDao")
-    private RoleDao dao;
+    @Qualifier("articleDao")
+    private ArticleDao dao;
 
-    public void save(Role role) {
-        dao.save(role);
+    public void save(Article entity) {
+        dao.save(entity);
     }
 
-    public void update(Role role) {
-        dao.update(role);
+    public void update(Article entity) {
+        dao.update(entity);
     }
 
-    public void delete(Role role) {
-        dao.delete(role);
+    public void delete(Article entity) {
+        dao.delete(entity);
     }
 
-    public Pager<Role> paging(Role role, int page, int pageSize) {
-        Pager<Role> pager = new Pager<Role>();
+    public Pager<Article> paging(Article entity, int page, int pageSize) {
+        Pager<Article> pager = new Pager<Article>();
         pager.setPage(page);
         pager.setPageSize(pageSize);
-        List<Role> list = getAll();
+        List<Article> list = getAll();
         pager.setTotalRecord(list.size());
         pager.setRecords(list);
         return pager;
     }
 
-    public List<Role> getAll() {
+    public List<Article> getAll() {
         return dao.getAll();
     }
 
-    public Role get(Serializable id) {
+    public Article get(Serializable id) {
         return dao.get(id);
     }
 }

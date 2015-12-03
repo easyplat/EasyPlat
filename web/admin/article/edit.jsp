@@ -37,35 +37,32 @@ $(document).ready(function(e) {
 <body>
 
 	<div class="place">
-    <span>位置：</span>
-    <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">系统设置</a></li>
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">内容管理</a></li>
+        <li><a href="#">文章管理</a></li>
+        <li><a href="#">新增文章</a></li>
     </ul>
     </div>
     
     <div class="formbody">
-    
-    
-    <div id="usual1" class="usual"> 
-    
+    <div id="usual1" class="usual">
     <div class="itab">
   	<ul> 
-    <li><a href="#tab1" class="selected">发布通知</a></li> 
-    <li><a href="#tab2">自定义</a></li> 
+    <li><a href="#tab1" class="selected">基本信息</a></li>
+    <li><a href="#tab2">SEO设置</a></li>
+        <li><a href="#tab2">扩展设置</a></li>
   	</ul>
     </div> 
     
-  	<div id="tab1" class="tabson">
+  	    <div id="tab1" class="tabson">
     
-    <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>
+    <%--<div class="formtext">Hi，<b>admin</b>，欢迎您试用信息发布功能！</div>--%>
     
     <ul class="forminfo">
-    <li><label>招聘企业<b>*</b></label><input name="" type="text" class="dfinput" value="请填写单位名称"  style="width:518px;"/></li>
-   
-    <li><label>职位名称<b>*</b></label>  
-    
-
+    <li><label>标题<b>*</b></label><input name="" type="text" class="dfinput" value="请填写标题"  style="width:518px;"/></li>
+    <li><label>类别<b>*</b></label>
     <div class="vocation">
     <select class="select1">
     <option>UI设计师</option>
@@ -79,11 +76,8 @@ $(document).ready(function(e) {
     <option>其他</option>
     </select>
     </div>
-    
     </li>
-    
     <li><label>薪资待遇<b>*</b></label>
-    
     <div class="vocation">
     <select class="select1">
     <option>3000-5000</option>
@@ -92,14 +86,9 @@ $(document).ready(function(e) {
     <option>10000-15000</option>
     </select>
     </div>
-    
-    
-    
     </li>
     <li><label>工作地点<b>*</b></label>
-    
     <div class="usercity">
-    
     <div class="cityleft">
     <select class="select2">
     <option>江苏</option>
@@ -119,29 +108,16 @@ $(document).ready(function(e) {
     <option>连云港</option>
     </select>
     </div>
-    
     </div>
-    
-    
-    
     </li>
     <li><label>通知内容<b>*</b></label>
-    
-
     <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea>
-    
     </li>
     <li><label>&nbsp;</label><input name="" type="button" class="btn" value="马上发布"/></li>
     </ul>
-    
-    </div> 
-    
-    
-  	<div id="tab2" class="tabson">
-    
-    
+    </div>
+  	    <div id="tab2" class="tabson">
     <ul class="seachform">
-    
     <li><label>综合查询</label><input name="" type="text" class="scinput" /></li>
     <li><label>指派</label>  
     <div class="vocation">
@@ -169,12 +145,9 @@ $(document).ready(function(e) {
     </select>
     </div>
     </li>
-    
     <li><label>&nbsp;</label><input name="" type="button" class="scbtn" value="查询"/></li>
-    
     </ul>
-    
-    
+
     <table class="tablelist">
     	<thead>
     	<tr>
@@ -246,14 +219,11 @@ $(document).ready(function(e) {
     
         </tbody>
     </table>
-    
-   
-  
-    
-    </div>  
-       
-	</div> 
- 
+    </div>
+        <div id="tab3" class="tabson">
+
+        </div>
+	</div>
 	<script type="text/javascript"> 
       $("#usual1 ul").idTabs(); 
     </script>
@@ -261,14 +231,6 @@ $(document).ready(function(e) {
     <script type="text/javascript">
 	$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
-    
-    
-    
-    
-    
     </div>
-
-
 </body>
-
 </html>

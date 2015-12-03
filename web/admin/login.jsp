@@ -32,11 +32,9 @@
     <li><a href="#">关于</a></li>
     </ul>    
     </div>
-    
     <div class="loginbody">
-    
-    <span class="systemlogo"></span> 
-       
+    <span class="systemlogo">${errorMsg}</span>
+
     <div class="loginbox loginbox1">
         <form  action="/admin/login"  method="post" modelAttribute="User">
     <ul>

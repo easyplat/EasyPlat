@@ -1,5 +1,6 @@
 <%@page language="java" contentType="text/html; charset=utf-8"  pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="u" uri="utils" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -48,7 +49,7 @@ $(document).ready(function(){
     
     <div class="tools">
     	<ul class="toolbar">
-        <li class="click"><span><a href="/article/create"><img alt="添加" src="/admin/images/t01.png" /></a></span>添加</li>
+        <li class="click"><a href="/article/create"><span><img alt="添加" src="/admin/images/t01.png" /></span>添加</a></li>
         <li><span><img src="/admin/images/t02.png" /></span>修改</li>
         <li><span><img src="/admin/images/t03.png" /></span>删除</li>
         <li><span><img src="/admin/images/t04.png" /></span>统计</li>
@@ -58,7 +59,6 @@ $(document).ready(function(){
         </ul>
     
     </div>
-
     <table class="tablelist">
     	<thead>
     	<tr>
@@ -173,27 +173,9 @@ $(document).ready(function(){
         </tr>        
         </tbody>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
-    </div>
-    
-    
+    <u:paging page="1" pageSize="20" href="/article/list/{page}/{pageSize}" paras="a=1&b=2" totalRecords="100" pageCount="5"/>
     <div class="tip">
     	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
       <div class="tipinfo">
         <span><img src="/admin/images/ticon.png" /></span>
         <div class="tipright">
@@ -201,17 +183,11 @@ $(document).ready(function(){
         <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
         </div>
         </div>
-        
         <div class="tipbtn">
         <input name="" type="button"  class="sure" value="确定" />&nbsp;
         <input name="" type="button"  class="cancel" value="取消" />
         </div>
-    
     </div>
-    
-    
-    
-    
     </div>
     
     <script type="text/javascript">

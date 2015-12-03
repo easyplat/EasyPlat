@@ -18,6 +18,11 @@ import java.util.Set;
 @Table(name = "CMS_ArticleCatalog")
 public class ArticleCatalog extends GeneralEntity {
     private String title;
+    private String description;
+    private String seoTitle;
+    private String seoKeywords;
+    private String seoDescription;
+    private String cover;
     private Set<Article> articles = new LinkedHashSet<Article>();
 
     public String getTitle() {
@@ -28,7 +33,6 @@ public class ArticleCatalog extends GeneralEntity {
         this.title = title;
     }
 
-
     @OneToMany
     @JoinColumn(name="catalogId")
     public Set<Article> getArticles() {
@@ -37,5 +41,45 @@ public class ArticleCatalog extends GeneralEntity {
 
     public void setArticles(Set<Article> articles) {
         this.articles = articles;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSeoTitle() {
+        return seoTitle;
+    }
+
+    public void setSeoTitle(String seoTitle) {
+        this.seoTitle = seoTitle;
+    }
+
+    public String getSeoKeywords() {
+        return seoKeywords;
+    }
+
+    public void setSeoKeywords(String seoKeywords) {
+        this.seoKeywords = seoKeywords;
+    }
+
+    public String getSeoDescription() {
+        return seoDescription;
+    }
+
+    public void setSeoDescription(String seoDescription) {
+        this.seoDescription = seoDescription;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 }

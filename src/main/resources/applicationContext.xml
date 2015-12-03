@@ -17,7 +17,13 @@
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <context:annotation-config/>
+    <!-- 打开spring的annotation的支持 -->
+    <context:annotation-config />
+    <!-- 设定spring去那些包中找annotation -->
+    <context:component-scan base-package="com.langeye" />
+
+    <!-- 导入src目录下的jdbc.properties文件 -->
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
@@ -58,28 +64,18 @@
             <value>
                 hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
                 hibernate.hbm2ddl.auto=update
-                hibernate.show_sql=false
+                hibernate.show_sql=true
                 hibernate.format_sql=false
             </value>
         </property>
     </bean>
 
-    <!-- 配置Hibernate事务管理器 -->
-    <bean id="txManager"
+    <bean id="transactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <aop:config>
-        <aop:pointcut id="transactionPointcut" expression="execution(* com.langeye.service..*.*(..))" />
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="transactionPointcut" />
-    </aop:config>
-    <tx:advice id="txAdvice" transaction-manager="txManager">
-        <tx:attributes>
-            <tx:method name="get*" read-only="true" propagation="NOT_SUPPORTED" />
-            <tx:method name="*" />
-        </tx:attributes>
-    </tx:advice>
+    <tx:annotation-driven/>
 
     <!--多语言-->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">

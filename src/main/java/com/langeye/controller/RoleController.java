@@ -1,8 +1,10 @@
 package com.langeye.controller;
 
-import com.langeye.common.ActionResult;
 import com.langeye.common.Pager;
 import com.langeye.entity.Role;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
 import javax.validation.Valid;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,9 +26,13 @@ import java.util.List;
 @RequestMapping(value="role")
 @SessionAttributes("SESSION_USER")
 public class RoleController extends BaseController{
+    protected final Log logger = LogFactory.getLog(getClass());
 
+    @InitBinder
     protected void initBinder(WebDataBinder binder){
-
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+        binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
 
     @RequestMapping(value = "/list/{page}/{pageSize}")
@@ -32,16 +40,17 @@ public class RoleController extends BaseController{
     public String list(@PathVariable("page") int page,
                         @PathVariable("pageSize") int pageSize,
                         Model model,
-                        RedirectAttributesModelMap modelMap){
+                        @RequestParam(name = "resultMsg",defaultValue = "",required = false) String resultMsg){
         Pager<Role> pager =roleService.paging(null, page, pageSize);
         model.addAttribute("pager",pager);
-        model.addAttribute("resultMsg",modelMap.get("resultMsg"));
+        model.addAttribute("resultMsg",resultMsg);
         return "role/list";
     }
 
     @RequestMapping(value = "/create",method = RequestMethod.GET)
     public String createGet(Model model){
         model.addAttribute("action","/role/create");
+        model.addAttribute("entity",new Role());
         return "role/edit";
     }
 
@@ -51,19 +60,18 @@ public class RoleController extends BaseController{
             Model model,
             RedirectAttributesModelMap modelMap){
         if(result.hasErrors()){
-            //如果有异常发生,将异常信息打印到前台
+
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError error : errors){
                 model.addAttribute(error.getObjectName(),error.getDefaultMessage());
             }
         }
         else{
-            //设定为当前时间新建
-            role.setDateCreated(Calendar.getInstance().getTime());
+            role.setDateCreated(new Date());
             //role.setDataCreated();
             roleService.save(role);
         }
-        modelMap.addAttribute("resultMsg","新增成功!");
+        modelMap.addAttribute("resultMsg","璧勬枡鏂板鎴愬姛");
         return "redirect:list/1/20";
     }
 
@@ -81,29 +89,25 @@ public class RoleController extends BaseController{
                              Model model,
                              RedirectAttributesModelMap modelMap){
         if(result.hasErrors()){
-            //如果有异常发生,将异常信息打印到前台
             List<ObjectError> errors = result.getAllErrors();
             for (ObjectError error : errors){
                 model.addAttribute(error.getObjectName(),error.getDefaultMessage());
             }
         }
         else{
-            //设定为当前时间新建
-            role.setDateModified(Calendar.getInstance().getTime());
+            role.setDateModified(new Date());
             roleService.update(role);
         }
-        modelMap.addAttribute("resultMsg","修改成功!");
+        modelMap.addAttribute("resultMsg","璧勬枡淇敼鎴愬姛!");
         return "redirect:list/1/20";
     }
 
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.GET)
-    public String deletePost(@PathVariable("id") int id,
-                             Model model,
-                             RedirectAttributesModelMap modelMap){
+    public String deletePost(@PathVariable("id") int id,RedirectAttributesModelMap modelMap){
         Role role = new Role();
         role.setId(id);
         roleService.delete(role);
-        modelMap.addAttribute("resultMsg","修改成功!");
+        modelMap.addAttribute("resultMsg","璧勬枡鍒犻櫎鎴愬姛");
         return "redirect:list/1/20";
     }
 }
