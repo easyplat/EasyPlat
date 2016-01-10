@@ -69,10 +69,16 @@ public class RoleController extends BaseController{
         else{
             role.setDateCreated(new Date());
             //role.setDataCreated();
-            roleService.save(role);
+            try {
+                roleService.save(role);
+                modelMap.addAttribute("resultMsg","资料新增成功");
+                return "redirect:list/1/20";
+            }
+            catch (RuntimeException e){
+                model.addAttribute("result","执行失败,事务回滚");
+            }
         }
-        modelMap.addAttribute("resultMsg","资料新增成功");
-        return "redirect:list/1/20";
+        return "role/edit";
     }
 
     @RequestMapping(value = "/edit/{id}",method = RequestMethod.GET)

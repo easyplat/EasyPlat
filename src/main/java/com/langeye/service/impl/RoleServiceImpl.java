@@ -26,6 +26,7 @@ public class RoleServiceImpl extends GeneralServiceImpl<Role> implements RoleSer
 
     public void save(Role role) {
         dao.save(role);
+        //throw new RuntimeException();
     }
 
     public void update(Role role) {

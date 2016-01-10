@@ -34,17 +34,17 @@ public class GeneralDaoImpl<TEntity extends GeneralEntity>
 
     public void save(TEntity tEntity) {
         sessionFactory.getCurrentSession().save(tEntity);
-        sessionFactory.getCurrentSession().flush();
+        //sessionFactory.getCurrentSession().flush();
     }
 
     public void update(TEntity tEntity) {
         sessionFactory.getCurrentSession().saveOrUpdate(tEntity);
-        sessionFactory.getCurrentSession().flush();
+        //sessionFactory.getCurrentSession().flush();
     }
 
     public void delete(TEntity tEntity) {
         sessionFactory.getCurrentSession().delete(tEntity);
-        sessionFactory.getCurrentSession().flush();
+        //sessionFactory.getCurrentSession().flush();
     }
 
     public Pager<TEntity> paging(TEntity tEntity, int page, int pageSize) {
