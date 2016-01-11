@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=utf-8"  pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>新增文章</title>
@@ -10,15 +10,7 @@
 <script type="text/javascript" src="/admin/js/jquery.js"></script>
 <script type="text/javascript" src="/admin/js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="/admin/js/select-ui.min.js"></script>
-<script type="text/javascript" src="/admin/editor/kindeditor.js"></script>
 
-<script type="text/javascript">
-    KE.show({
-        id : 'content7',
-        cssPath : './index.css'
-    });
-  </script>
-  
 <script type="text/javascript">
 $(document).ready(function(e) {
     $(".select1").uedSelect({
@@ -111,7 +103,20 @@ $(document).ready(function(e) {
     </div>
     </li>
     <li><label>通知内容<b>*</b></label>
-    <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea>
+        <!-- 加载编辑器的容器 -->
+        <textarea id="container" name="content">这里写你的初始化内容</textarea>
+        <!-- 配置文件 -->
+        <script type="text/javascript" src="/admin/editor/ueditor/ueditor.config.js"></script>
+        <!-- 编辑器源码文件 -->
+        <script type="text/javascript" src="/admin/editor/ueditor/ueditor.all.js"></script>
+        <!-- 实例化编辑器 -->
+        <script type="text/javascript">
+            var ue = UE.getEditor('container'/*,{
+                autoHeightEnabled: true,
+                autoFloatEnabled: true,
+                initialFrameWidth:500
+            }*/);
+        </script>
     </li>
     <li><label>&nbsp;</label><input name="" type="button" class="btn" value="马上发布"/></li>
     </ul>

@@ -56,7 +56,6 @@
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan" value="com.langeye.entity"/>
-        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
         <property name="hibernateProperties">
             <value>
                 hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect

@@ -10,7 +10,7 @@
 <script type="text/javascript" src="/admin/js/jquery.js"></script>
 <script type="text/javascript" src="/admin/js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="/admin/js/select-ui.min.js"></script>
-<script type="text/javascript" src="/admin/editor/kindeditor.js"></script>
+<script type="text/javascript" src="/admin/editor/kindeditor/kindeditor.js"></script>
 
 <script type="text/javascript">
     KE.show({
